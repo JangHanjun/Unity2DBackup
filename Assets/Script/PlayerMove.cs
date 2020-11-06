@@ -90,10 +90,10 @@ public class PlayerMove : MonoBehaviour {
         if (isGround == true && Input.GetKeyDown(KeyCode.LeftShift) && canSlide == true) {
             animator.SetBool("isSliding", true);
             canSlide = false;
-            //todo : 슬라이딩 가속도를 넣어보자
-            gameObject.layer = 12;                                       // become invincible
-            Invoke("slidingFalse", 0.5f);                         // todo : invoke의 시간을 변수로 변경하자
-            Invoke("TFslide", 1f);                                          // 1f is delay time
+            maxSpeed *= 2f;                             // Speed up
+            gameObject.layer = 12;                      // become invincible
+            Invoke("slidingFalse", 0.5f);               // todo : invoke의 시간을 변수로 변경하자
+            Invoke("TFslide", 1f);                      // 1f is delay time
         }
 
         //Direction (Right or Left)
@@ -146,6 +146,7 @@ public class PlayerMove : MonoBehaviour {
     }
     //Sliding
     void slidingFalse() {
+        maxSpeed = maxSpeed/2.0f;
         animator.SetBool("isSliding", false);
         gameObject.layer = 11;                                                                                                            // invincible time end
     }
@@ -174,8 +175,7 @@ public class PlayerMove : MonoBehaviour {
         spriteRenderer.color = new Color(1, 1, 1, 0.5f);                                               // Damaged Effect
         // Enemy > Add Force
         int dir = transform.position.x - enemyPos.x > 0 ? 1 : -1;                           // enemy is on right = 1, else = -1
-        rigid.AddForce(new Vector2(dir, 1) * 7, ForceMode2D.Impulse);    // 
-        // TODO : HP decrease
+        rigid.AddForce(new Vector2(dir, 1) * 7, ForceMode2D.Impulse);
         // TODO : Animation
         Invoke("returnLayer", 1);  // invincible time
     }
@@ -188,7 +188,10 @@ public class PlayerMove : MonoBehaviour {
     //Stage
     void OnTriggerEnter2D(Collider2D collision){
         if (collision.gameObject.tag == "Finish"){
-             Debug.Log("To next stage");
+            Debug.Log("StageClear");
         }
+    }
+    public void velocityZero(){
+        rigid.velocity = Vector2.zero;
     }
 }
