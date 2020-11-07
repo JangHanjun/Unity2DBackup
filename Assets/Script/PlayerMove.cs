@@ -35,11 +35,10 @@ public class PlayerMove : MonoBehaviour {
     //Sliding
     [SerializeField]
     bool canSlide;
-    //public float slidingPower;
 
     // Stat
-    public static float MaxHp;
-    public static float currentHp;  // 위 두개의 변수를  int로 하니 slider에서 못알아듣더라
+    public static int MaxHp;
+    public static int currentHp;  
 
     //Stage
 
@@ -163,7 +162,7 @@ public class PlayerMove : MonoBehaviour {
     }
     void playerDamaged(Vector2 enemyPos) {
         // Hp decrease
-        currentHp -= 1f;
+        currentHp -= 1;
 
         // Game Over Check
         if (currentHp < 1) {

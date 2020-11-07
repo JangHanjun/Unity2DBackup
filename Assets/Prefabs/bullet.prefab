@@ -98,7 +98,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   destoryTime: 2
-  power: 1
   distance: 0
   layer:
     serializedVersion: 2

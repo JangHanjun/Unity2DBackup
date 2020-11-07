@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 public class bullet : MonoBehaviour {
-    public float speed;                                     // 공속
-    public float destoryTime;                               // 사정거리
+    public float  speed;                             // 탄속
+    public float destoryTime;                       // 사정거리
     float power;                                    // 공격력
     public float distance;
     public LayerMask layer;

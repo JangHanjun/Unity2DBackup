@@ -15,7 +15,7 @@ public class Ui : MonoBehaviour
         HandleHP();
     }
     void HandleHP(){
-        hpbar.value = Mathf.Lerp(hpbar.value, PlayerMove.currentHp/PlayerMove.MaxHp, Time.deltaTime *10);
+        hpbar.value = Mathf.Lerp(hpbar.value, (float)PlayerMove.currentHp/(float)PlayerMove.MaxHp, Time.deltaTime *10);
     }
     
 }

@@ -3745,7 +3745,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 372039065789500038, guid: fae4d334aa1883245af1dcb45697a549, type: 3}
   pos: {fileID: 1529687054}
-  coolTime: 0.3
 --- !u!1 &1555065756
 GameObject:
   m_ObjectHideFlags: 0

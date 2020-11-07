@@ -8,11 +8,12 @@ public class playerAttack : MonoBehaviour
     public Transform pos;    
     public static float atk;
 
-    public float coolTime;
+    public static float coolTime;   // 공속
     private float curTime;
 
     void Awake(){
         atk = 2f;
+        coolTime = 1f;
     }
     void Update(){
         // Mouse Position
