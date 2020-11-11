@@ -37,8 +37,10 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Script\AttackingMonster.cs" />
+     <Compile Include="Assets\Script\forQuickSlot\SlotData.cs" />
      <Compile Include="Assets\Script\EnemyDamaged.cs" />
      <Compile Include="Assets\Script\Item.cs" />
+     <Compile Include="Assets\Script\forQuickSlot\PickUp.cs" />
      <Compile Include="Assets\Script\MovingPlatform.cs" />
      <Compile Include="Assets\Script\bullet.cs" />
      <Compile Include="Assets\Script\CharacterSelect.cs" />
@@ -53,12 +55,12 @@
      <Compile Include="Assets\Script\ChatBoxNPC.cs" />
      <Compile Include="Assets\Script\MonsterMove.cs" />
      <Compile Include="Assets\Script\StartRespwan.cs" />
+     <Compile Include="Assets\Script\forQuickSlot\Inventory.cs" />
      <Compile Include="Assets\Script\GameManager.cs" />
      <Compile Include="Assets\Script\PlayerMove.cs" />
      <Compile Include="Assets\Script\MonsterSKill.cs" />
-     <Compile Include="Assets\Script\PickUp.cs" />
-     <Compile Include="Assets\Script\Inventory.cs" />
-     <Compile Include="Assets\Script\SlotData.cs" />
+     <Compile Include="Assets\Script\forQuickSlot\Slot.cs" />
+     <Compile Include="Assets\Script\forQuickSlot\slotItemExample.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
