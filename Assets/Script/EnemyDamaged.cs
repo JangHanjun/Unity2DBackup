@@ -18,11 +18,22 @@ public class EnemyDamaged : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    public void Damaged() {
+    public void beforeDamaged(){
+        // todo : 외부에서 코루틴을 시작하는 방법 알아보자
+        StartCoroutine(Damaged());
+    }
+
+    IEnumerator Damaged() {
+        spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        if(curHp > 0){
+            spriteRenderer.color = new Color(1, 1, 1, 1);
+        }
+
         if (curHp <= 0) {
             spriteRenderer.color = new Color(1, 1, 1, 0.4f);
             boxCollider2D.enabled = false;
-            Destroy(gameObject, 2f);
+            Destroy(gameObject, 1f);
             ItemDrop();
         }
     }
