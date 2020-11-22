@@ -21,7 +21,7 @@ public class playerAttack : MonoBehaviour
         float z = Mathf.Atan2(len.y, len.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, z);
 
-        if (curTime <=0){
+        if (curTime <=0 && transform.parent.GetComponent<PlayerMove>().onWall == false){
             if (Input.GetMouseButton(0)){    // Left Mouse Button
                 Instantiate(bullet, pos.position, transform.rotation);
             }

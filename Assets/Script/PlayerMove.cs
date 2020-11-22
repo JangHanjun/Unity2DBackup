@@ -26,11 +26,11 @@ public class PlayerMove : MonoBehaviour {
     //WallJump
     Vector3 dirVec; //wallJumpRay's direction
     //GameObject scanObject; // for debug
-    // bool isClimbing;
     float h;
     public float slidingSpeed;
     public float wallJumpPower;
-    bool isWallJump;
+    public bool canWallJump;
+    public bool onWall;         // playerAttack에서 사용할 변수
 
     //Sliding
     [SerializeField]
@@ -50,6 +50,7 @@ public class PlayerMove : MonoBehaviour {
 
         jumpCount = maxJump;
         canSlide = true;
+        onWall = false;
 
         // Player Stat
         MaxHp = 3;
@@ -59,7 +60,7 @@ public class PlayerMove : MonoBehaviour {
 
     void Update() {
         // Flip sprite  
-        if (Input.GetButton("Horizontal") && !isWallJump) {
+        if (Input.GetButton("Horizontal") && !canWallJump) {
             spriteRenderer.flipX = Input.GetAxisRaw("Horizontal") == 1;
         }
 
@@ -105,7 +106,7 @@ public class PlayerMove : MonoBehaviour {
     void FixedUpdate() {
         // Moving
         float h = Input.GetAxisRaw("Horizontal");
-        if (!isWallJump) {
+        if (!canWallJump) {
             rigid.AddForce(Vector2.right * h, ForceMode2D.Impulse);
         }
 
@@ -121,18 +122,19 @@ public class PlayerMove : MonoBehaviour {
 
         if (wallJumpRay.collider != null) {
             //scanObject = wallJumpRay.collider.gameObject;    // for debug
+            onWall = true;
             animator.SetBool("isClimbing", true);
             rigid.velocity = new Vector2(rigid.velocity.x, rigid.velocity.y * slidingSpeed);
             //WallJump
             if (Input.GetAxis("Jump") != 0) {
-                isWallJump = true;
+                canWallJump = true;
                 Invoke("FreezX", 0.5f);
                 rigid.velocity = new Vector2(-0.9f * wallJumpPower, 0.9f * wallJumpPower);
                 if (spriteRenderer.flipX) {
                     spriteRenderer.flipX = false;
-                      } else if (!spriteRenderer.flipX) {
+                    } else if (!spriteRenderer.flipX) {
                     spriteRenderer.flipX = true;
-                      }
+                    }
             }
         } else {
             animator.SetBool("isClimbing", false);
@@ -141,7 +143,7 @@ public class PlayerMove : MonoBehaviour {
 
     //Stop moving after walljump
     void FreezX() {
-        isWallJump = false;
+        canWallJump = false;
     }
     //Sliding
     void slidingFalse() {
