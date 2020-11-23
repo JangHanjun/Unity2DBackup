@@ -5,9 +5,9 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     //아이템 종류와 값을 저장할 변수들
-    public enum  Type { Coin, Heart, Weapon};
-    public Type type;
-    public int value;
+    //public enum  Type { Coin, Heart, Weapon};
+    //public Type type;
+    //public int value;
 
     private void OnTriggerEnter2D(Collider2D collision){
         /* 공속증가 아이템

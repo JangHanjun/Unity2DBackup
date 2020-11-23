@@ -6,7 +6,9 @@ public class ChatBoxNPC : MonoBehaviour {
     public string[] sentences;  // NPC의 대사를 받을 배열
     public Transform chatBoxPos;  // 말풍선의 생성 위치
     public GameObject chatBoxPrefab;  // 만든 챗 박스
-    public bool isTalk = false;  //default
+    
+    [SerializeField]
+    bool isTalk = false;  //default
 
     // NPC Moving
     // 움직이는 NPC들의 경우 rigidbody를 사용하기 때문에 y축 고정을 사용하고 is trigger을 해줌

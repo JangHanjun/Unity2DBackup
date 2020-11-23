@@ -144,6 +144,7 @@ public class PlayerMove : MonoBehaviour {
     //Stop moving after walljump
     void FreezX() {
         canWallJump = false;
+        onWall = false;
     }
     //Sliding
     void slidingFalse() {
